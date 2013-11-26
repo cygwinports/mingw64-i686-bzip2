@@ -4,7 +4,7 @@ inherit cross
 
 NAME="mingw64-i686-bzip2"
 VERSION=1.0.6
-RELEASE=3
+RELEASE=4
 CATEGORY="Devel"
 SUMMARY="libbz2 for MinGW-w64 Win32 toolchain"
 DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
@@ -19,7 +19,7 @@ src_compile() {
 	lndirs
 	cd ${B}
 	cygmake clean
-	cygmake libbz2.a CC=${CC} AR=${CROSS_HOST}-ar RANLIB=${CROSS_HOST}-ranlib
+	cygmake libbz2.a CC=${CC} AR=${AR} RANLIB=${RANLIB}
 	${CC} -shared -Wl,--out-implib,libbz2.dll.a -o libbz2-1.dll *.o
 }
 
